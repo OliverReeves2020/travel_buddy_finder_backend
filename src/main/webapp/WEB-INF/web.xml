@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <resource-ref>
+        <res-ref-name>Firebase</res-ref-name>
+        <lookup-name>src/main/webapp/WEB-INF/cloudcompdata-407ae-firebase-adminsdk-ngouw-a1fa920dd1.json</lookup-name>
+    </resource-ref>
+
+    <servlet>
+        <servlet-name>Hello</servlet-name>
+        <servlet-class>com.servlets.webapp.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Hello</servlet-name>
+        <url-pattern>/H</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Random</servlet-name>
+        <servlet-class>com.servlets.webapp.RandomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Random</servlet-name>
+        <url-pattern>/Random</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.servlets.webapp.checkUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>trip</servlet-name>
+        <servlet-class>com.servlets.webapp.tripServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>trip</servlet-name>
+        <url-pattern>/trip</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Express</servlet-name>
+        <servlet-class>com.servlets.webapp.ExpressionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Express</servlet-name>
+        <url-pattern>/Express</url-pattern>
+    </servlet-mapping>
+    <listener>
+        <listener-class>listners.FireListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>UserTripServlet</servlet-name>
+        <servlet-class>com.servlets.webapp.UserTripServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserTripServlet</servlet-name>
+        <url-pattern>/UserTripServlet</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>UserAuthFilter</filter-name>
+        <filter-class>filters.UserAuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserAuthFilter</filter-name>
+        <servlet-name>trip</servlet-name>
+        <servlet-name>Express</servlet-name>
+        <servlet-name>UserTripServlet</servlet-name>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>ErrorHandler</servlet-name>
+        <servlet-class>com.servlets.webapp.ErrorHandlerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ErrorHandler</servlet-name>
+        <url-pattern>/ErrorHandler</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/ErrorHandler</location>
+    </error-page>
+
+
+</web-app>
